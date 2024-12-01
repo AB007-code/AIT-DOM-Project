@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+// 1.) Create an application for vowel counters by using HTML, CSS and JavaScript.
+// ● Develop a textarea to enter a words
+// ● Create 2 buttons for Count Vowels and Reset
+// ● When the user clicks on the Count Vowels button display vowels counts inside h2 tag.
+// ● While clicking the reset button the textarea and vowels counts have to be empty
+// and 0.
+const div = document.createElement("div")
+const h1 = document.createElement("h1")
+const textarea=document.createElement("textarea")
+const h2 = document.createElement("h2")
+const span = document.createElement("span")
+const button=document.createElement("button")
+const button1 = button.cloneNode()
+const body = document.querySelector("body")
+body.appendChild(div)
+div.appendChild(h1)
+div.appendChild(textarea)
+div.appendChild(h2)
+div.appendChild(button)
+div.appendChild(button1)
+h1.textContent="VOWEL COUNTER"
+button.textContent="Check Vowel"
+button1.textContent="Reset"
+div.style.border="1px solid red"
+div.style.height="400px"
+div.style.textAlign="center"
+textarea.style.height="200px"
+textarea.style.width="280px"
+button.style.padding="10px 20px"
+button1.style.padding="10px 20px"
+button.style.marginRight="5px"
+let count = 0;
+h2.innerHTML=`Vowel Count: ${count}`
+button.addEventListener("click", (e)=>{
+    for(let i=0; i<=textarea.value.length-1; i++){
+    if(textarea.value[i]=="a"||textarea.value[i]=="e"||textarea.value[i]=="i"||textarea.value[i]=="o"||textarea.value[i]=="u"){
+       count++
+    }
+}
+h2.innerHTML=`Vowel Count: ${count}`
+count=0 // this will stop the increment of vowelcount again whenever i click the button.
+    // console.log(textarea.value[1])
+})
+button1.addEventListener("click", ()=>{
+    h2.innerHTML=`Vowel Count: ${0}`
+    textarea.value=""
+})
+    </script>
+</body>
+</html>
